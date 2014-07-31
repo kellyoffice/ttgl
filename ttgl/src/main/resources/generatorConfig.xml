@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<properties resource="generatorConfig.properties"/>
+	
+	<classPathEntry
+		location="${connClassPath}"/>
+	<context id="context1" targetRuntime="MyBatis3">
+	 <!-- 注释 -->  
+        <commentGenerator >  
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->  
+           <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->  
+      </commentGenerator>  
+	
+		<jdbcConnection driverClass="${driverClass}"
+			connectionURL="${connectionURL}"
+			userId="${dbuser}" password="${password}" />
+			  <!-- 类型转换 -->  
+        <javaTypeResolver>  
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->  
+           <property name="forceBigDecimals" value="false"/>  
+        </javaTypeResolver>  
+		
+		<javaModelGenerator targetPackage="${modelTarget}"
+			targetProject="${TargetProject}">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="${sqlMapTarget}"
+			targetProject="${xmlTargetProject}">
+			 <property name="enableSubPackages" value="false" />  
+			</sqlMapGenerator>
+		<javaClientGenerator targetPackage="${daoTarget}"
+			targetProject="${TargetProject}" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table schema="${dbname}" tableName="user" domainObjectName="User" enableCountByExample="false"  
+           enableDeleteByExample="false" enableSelectByExample="false"  
+         enableUpdateByExample="false">  
+		</table>
+	</context>
+</generatorConfiguration>
