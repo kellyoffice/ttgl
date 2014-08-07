@@ -19,11 +19,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script type="text/javascript" src="<%=request.getContextPath() %>/js/my97/WdatePicker.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/my97/WdatePicker.js"></script>
   </head>
   
   <body>
-    <form action="login/register.do">
+    <form action="<%=path %>/login/register.do">
     	用户名：<input	name="name"></br>
     	密码：<input type="password" name="password" ></br>
     	性别：男<input type="radio" name="sex" value="男" checked="checked">
