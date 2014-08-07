@@ -1,4 +1,4 @@
-package com.kellyqi.ttgl.demo.model;
+package com.kellyqi.ttgl.model;
 
 import java.util.Date;
 

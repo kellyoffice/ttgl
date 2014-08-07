@@ -1,6 +1,6 @@
-package com.kellyqi.ttgl.demo.dao;
+package com.kellyqi.ttgl.dao;
 
-import com.kellyqi.ttgl.demo.model.User;
+import com.kellyqi.ttgl.model.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
