@@ -1,0 +1,24 @@
+/**
+ * Date:2014年8月9日下午5:55:05
+ * mail:zhaoqi19880624@163.com 
+ * Copyright (c) 2014 by ZhaoQi , All Rights Reserved .
+ */
+
+package com.kellyqi.ttgl.service.login;
+
+import org.springframework.stereotype.Service;
+
+import com.kellyqi.ttgl.model.User;
+
+/** 
+ * Function: TODO ADD FUNCTION. <br/> 
+ * Reason:   TODO ADD REASON. <br/>
+ * Date:     2014年8月9日 下午5:55:05 <br/>
+ * @author   ZhaoQi 
+ * @version  1.0 
+ * @since    JDK 1.6
+ * @see 
+ */
+public interface UserService {
+	public int insertUser(User user);
+}
