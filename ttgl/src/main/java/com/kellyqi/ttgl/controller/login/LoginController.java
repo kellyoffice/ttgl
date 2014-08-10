@@ -7,11 +7,13 @@
 package com.kellyqi.ttgl.controller.login;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kellyqi.ttgl.demo.controller.Log4JTest;
+import com.kellyqi.ttgl.model.User;
+import com.kellyqi.ttgl.service.login.UserService;
 
 /** 
  * Function: TODO ADD FUNCTION. <br/> 
@@ -25,6 +27,8 @@ import com.kellyqi.ttgl.demo.controller.Log4JTest;
 @Controller
 @RequestMapping(value="login")
 public class LoginController {
+	@Autowired 
+	private UserService userService;
 	private static Logger logger = Logger.getLogger(LoginController.class);
 	
 	@RequestMapping(value="registerview.do")
@@ -32,7 +36,11 @@ public class LoginController {
 		logger.debug("用户跳转到注册页面");
 	}
 	@RequestMapping(value="register.do")
-	public void register(){
-		logger.info("insert into user~");
+	public void register(User user, ModelMap modelMap){
+		logger.debug("insert into user~");
+		logger.debug("sex中文服务器接受值为："+user.getSex());
+		logger.debug("birthday服务器接受值为："+user.getBirthday());
+		userService.insertUser(user);
 	}
+	
 }

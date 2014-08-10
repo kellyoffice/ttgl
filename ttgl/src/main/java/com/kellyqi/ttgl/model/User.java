@@ -2,6 +2,8 @@ package com.kellyqi.ttgl.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class User {
     private Integer id;
 
@@ -12,7 +14,7 @@ public class User {
     private String sex;
 
     private String mail;
-
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 
     public Integer getId() {

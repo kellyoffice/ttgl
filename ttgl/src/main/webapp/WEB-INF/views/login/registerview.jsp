@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -24,12 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <form action="<%=path %>/login/register.do">
-    	用户名：<input	name="name"></br>
+    	姓名：<input	name="name"></br>
     	密码：<input type="password" name="password" ></br>
     	性别：男<input type="radio" name="sex" value="男" checked="checked">
     		女<input type="radio" name="sex" value="女"></br>
     	mail:<input name="mail"></br>
-    	生日:<input name="date"  readonly="readonly" onfocus="WdatePicker({isShowWeek:true})" /> </br>
+    	生日：<input name="birthday"   type="text"  readonly="readonly" onfocus="WdatePicker()" /> </br>
 		<input type="submit" value="确定">
     </form>
   </body>
