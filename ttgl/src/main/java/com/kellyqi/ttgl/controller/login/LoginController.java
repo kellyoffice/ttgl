@@ -6,6 +6,8 @@
 
 package com.kellyqi.ttgl.controller.login;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,16 +33,19 @@ public class LoginController {
 	private UserService userService;
 	private static Logger logger = Logger.getLogger(LoginController.class);
 	
-	@RequestMapping(value="registerview.do")
-	public void registertojsp(){
-		logger.debug("用户跳转到注册页面");
-	}
 	@RequestMapping(value="register.do")
-	public void register(User user, ModelMap modelMap){
+	public String register(User user){
 		logger.debug("insert into user~");
-		logger.debug("sex中文服务器接受值为："+user.getSex());
-		logger.debug("birthday服务器接受值为："+user.getBirthday());
 		userService.insertUser(user);
+		return "redirect:list.do";
+	}
+	
+	@RequestMapping(value="list.do")
+	public String list(ModelMap map){
+		logger.debug("list users~");
+		List<User> users = userService.findAllUser();
+		map.addAttribute("users", users);
+		return "login/userList";
 	}
 	
 }

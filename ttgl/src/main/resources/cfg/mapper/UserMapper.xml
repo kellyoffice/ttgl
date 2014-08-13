@@ -101,4 +101,10 @@
       birthday = #{birthday,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!-- ==========================Ext 扩展================================ -->
+  <select id="findAllUser" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+  </select>
 </mapper>

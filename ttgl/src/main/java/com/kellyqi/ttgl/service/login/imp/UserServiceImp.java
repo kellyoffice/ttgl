@@ -6,6 +6,8 @@
 
 package com.kellyqi.ttgl.service.login.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,13 @@ import com.kellyqi.ttgl.service.login.UserService;
 public class UserServiceImp implements UserService{
 	@Autowired
 	private UserMapper userMapper;
+
 	public int insertUser(User user){
 		return userMapper.insert(user);
+	}
+	@Override
+	public List<User> findAllUser() {
+		// TODO Auto-generated method stub
+		return userMapper.findAllUser();
 	}
 }

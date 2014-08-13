@@ -14,6 +14,7 @@ public class User {
     private String sex;
 
     private String mail;
+    
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 

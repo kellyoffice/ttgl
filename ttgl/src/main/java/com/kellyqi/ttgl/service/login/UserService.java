@@ -6,7 +6,7 @@
 
 package com.kellyqi.ttgl.service.login;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import com.kellyqi.ttgl.model.User;
 
@@ -21,4 +21,5 @@ import com.kellyqi.ttgl.model.User;
  */
 public interface UserService {
 	public int insertUser(User user);
+	public List<User> findAllUser();
 }
