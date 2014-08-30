@@ -22,4 +22,6 @@ import com.kellyqi.ttgl.model.User;
 public interface UserService {
 	public int insertUser(User user);
 	public List<User> findAllUser();
+	public boolean deleteUserById(Integer id);
+	public boolean updateUser(User user);
 }

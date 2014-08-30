@@ -37,4 +37,22 @@ public class UserServiceImp implements UserService{
 		// TODO Auto-generated method stub
 		return userMapper.findAllUser();
 	}
+	@Override
+	public boolean deleteUserById(Integer id) {
+		// TODO Auto-generated method stub
+		int i = userMapper.deleteByPrimaryKey(id);
+		if(i == 1)
+			return true;
+		else
+			return false;
+	}
+	@Override
+	public boolean updateUser(User user) {
+		// TODO Auto-generated method stub
+		int i = userMapper.updateByPrimaryKey(user);
+		if(i == 1)
+			return true;
+		else
+			return false;
+	}
 }
