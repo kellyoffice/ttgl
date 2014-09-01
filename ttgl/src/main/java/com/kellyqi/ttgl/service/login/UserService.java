@@ -24,4 +24,5 @@ public interface UserService {
 	public List<User> findAllUser();
 	public boolean deleteUserById(Integer id);
 	public boolean updateUser(User user);
+	public User findUserByName(String name);
 }

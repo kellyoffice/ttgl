@@ -8,12 +8,15 @@ package com.kellyqi.ttgl.controller.login;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kellyqi.ttgl.entity.Msg;
 import com.kellyqi.ttgl.model.User;
@@ -37,12 +40,14 @@ public class UserController {
 	
 	@RequestMapping(value="addUser.do")
 	@ResponseBody
-	public Msg register(User user){
+	public Msg register(HttpSession httpSession,User user){
 		logger.debug("insert into user,name is :" + user.getName() );
 		int i = userService.insertUser(user);
 		if(i == 0){
 			return new Msg(false,"用户注册失败");
 		}else{
+			httpSession.setAttribute("user", user);
+			httpSession.setMaxInactiveInterval(3600);
 			return new Msg(true,"用户注册成功");
 		}
 	}
@@ -74,5 +79,42 @@ public class UserController {
 			return new Msg(true,"更新成功");
 		else
 			return new Msg(false,"更新失败");
+	}
+	
+	@RequestMapping(value="login.do")
+	@ResponseBody
+	public Msg login(User user,HttpSession httpSession){
+		logger.debug("login :" + user.getName());
+		User u = userService.findUserByName(user.getName());
+		if(u.getPassword().equalsIgnoreCase(user.getPassword())){
+			httpSession.setAttribute("user", u);
+			httpSession.setMaxInactiveInterval(3600);
+			return new Msg(true,"登陆成功");
+		}else{
+			return new Msg(false,"密码不正确");
+		}
+	}
+	
+	@RequestMapping(value="main.do")
+	public String mainJsp(HttpSession httpSession){
+		Object user = httpSession.getAttribute("user");
+		if(user == null){
+			httpSession.setAttribute("sessionWithoutUser", "请先登陆");
+			return "redirect:relogin.do";
+		}else{
+			return "userManager/main";
+		}
+			
+	}
+	
+	@RequestMapping(value="relogin.do")
+	public String relogin(){
+		return "redirect:/userManager/login.jsp";
+	}
+	
+	@RequestMapping(value="logout.do")
+	public String logout(HttpSession httpSession){
+		httpSession.removeAttribute("user");
+		return "redirect:/userManager/login.jsp";
 	}
 }

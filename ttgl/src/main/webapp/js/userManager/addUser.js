@@ -8,7 +8,7 @@
                 },
                 passwordText : '两次输入的密码不一致!'
             });
- 
+
 Ext.application({
     name   : 'addUserApp',
 
@@ -74,6 +74,10 @@ Ext.application({
     	        	fieldLabel: '邮箱',
     	            name: 'mail',
     	            vtype: 'email' 
+    	        },{
+    	        	xtype: 'hiddenfield',
+    	            name: 'role',
+    	            value: 1 
     	        },
     	        {
     	        	xtype: 'datefield',
@@ -90,11 +94,22 @@ Ext.application({
     	    		form.getForm().submit({
     	    			url:'/ttgl/userController/addUser.do',
     	    			success:function(form,action){
-    	    				Ext.Msg.alert('提示信息',action.result.msg);
+    	    				if (action.result && action.result.success == true) {
+    	    		            window.location.href = '/ttgl/userController/main.do';
+    	    		            }
     	    			},
     	    			failure:function(form,action){
-    	    				Ext.Msg.alert('提示信息','');
-    	    			}
+   	    				 switch (action.failureType) {
+   	    		            case Ext.form.action.Action.CLIENT_INVALID:
+   	    		                Ext.Msg.alert('提示信息', '填写的数据未通过验证');
+   	    		                break;
+   	    		            case Ext.form.action.Action.CONNECT_FAILURE:
+   	    		                Ext.Msg.alert('提示信息', '连接服务器失败');
+   	    		                break;
+   	    		            case Ext.form.action.Action.SERVER_INVALID:
+   	    		               Ext.Msg.alert('提示信息', action.result.msg);
+   	    		       }
+   	    			}
     	    		});
     	    	}
     	    }]

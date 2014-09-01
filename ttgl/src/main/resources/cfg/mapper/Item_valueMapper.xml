@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kellyqi.ttgl.dao.Item_valueMapper" >
+  <resultMap id="BaseResultMap" type="com.kellyqi.ttgl.model.Item_value" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="DECIMAL" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="itemId" property="itemid" jdbcType="INTEGER" />
+    <result column="lastRecord" property="lastrecord" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, num, createTime, itemId, lastRecord, address
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from item_value
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from item_value
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.kellyqi.ttgl.model.Item_value" >
+    insert into item_value (id, num, createTime, 
+      itemId, lastRecord, address
+      )
+    values (#{id,jdbcType=INTEGER}, #{num,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{itemid,jdbcType=INTEGER}, #{lastrecord,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kellyqi.ttgl.model.Item_value" >
+    insert into item_value
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="itemid != null" >
+        itemId,
+      </if>
+      <if test="lastrecord != null" >
+        lastRecord,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="lastrecord != null" >
+        #{lastrecord,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kellyqi.ttgl.model.Item_value" >
+    update item_value
+    <set >
+      <if test="num != null" >
+        num = #{num,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="itemid != null" >
+        itemId = #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="lastrecord != null" >
+        lastRecord = #{lastrecord,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kellyqi.ttgl.model.Item_value" >
+    update item_value
+    set num = #{num,jdbcType=DECIMAL},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      itemId = #{itemid,jdbcType=INTEGER},
+      lastRecord = #{lastrecord,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

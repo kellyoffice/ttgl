@@ -55,4 +55,8 @@ public class UserServiceImp implements UserService{
 		else
 			return false;
 	}
+	@Override
+	public User findUserByName(String name) {
+		return userMapper.findUserByName(name);
+	}
 }
