@@ -28,7 +28,7 @@ import com.kellyqi.ttgl.service.login.UserService;
  * Date:     2014年8月7日 下午11:01:31 <br/>
  * @author   ZhaoQi 
  * @version  1.0 
- * @since    JDK 1.6
+ * @since    JDK 1.7
  * @see 
  */
 @Controller
@@ -85,7 +85,10 @@ public class UserController {
 	@ResponseBody
 	public Msg login(User user,HttpSession httpSession){
 		logger.debug("login :" + user.getName());
-		User u = userService.findUserByName(user.getName());
+		User u = userService.findUserByMail(user.getMail());
+		if(u == null){
+			return new Msg(false,"\""+user.getMail()+"\"这个用户不存在");
+		}
 		if(u.getPassword().equalsIgnoreCase(user.getPassword())){
 			httpSession.setAttribute("user", u);
 			httpSession.setMaxInactiveInterval(3600);

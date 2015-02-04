@@ -126,5 +126,9 @@
     <include refid="Base_Column_List" />
     from user where name = #{name,jdbcType=VARCHAR}
   </select>
-  
+  <select id="findUserByMail" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user where mail = #{mail,jdbcType=VARCHAR}
+  </select>
 </mapper>

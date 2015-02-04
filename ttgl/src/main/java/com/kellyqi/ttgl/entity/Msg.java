@@ -7,11 +7,10 @@
 package com.kellyqi.ttgl.entity;
 /** 
  * Function: TODO ADD FUNCTION. <br/> 
- * Reason:   TODO ADD REASON. <br/>
  * Date:     2014年8月20日 下午11:15:16 <br/>
  * @author   ZhaoQi 
  * @version  1.0 
- * @since    JDK 1.6
+ * @since    JDK 1.7
  * @see 
  */
 public class Msg {

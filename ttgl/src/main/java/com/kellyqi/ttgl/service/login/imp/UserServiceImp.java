@@ -32,12 +32,10 @@ public class UserServiceImp implements UserService{
 	public int insertUser(User user){
 		return userMapper.insert(user);
 	}
-	@Override
 	public List<User> findAllUser() {
 		// TODO Auto-generated method stub
 		return userMapper.findAllUser();
 	}
-	@Override
 	public boolean deleteUserById(Integer id) {
 		// TODO Auto-generated method stub
 		int i = userMapper.deleteByPrimaryKey(id);
@@ -46,7 +44,6 @@ public class UserServiceImp implements UserService{
 		else
 			return false;
 	}
-	@Override
 	public boolean updateUser(User user) {
 		// TODO Auto-generated method stub
 		int i = userMapper.updateByPrimaryKey(user);
@@ -55,8 +52,11 @@ public class UserServiceImp implements UserService{
 		else
 			return false;
 	}
-	@Override
 	public User findUserByName(String name) {
 		return userMapper.findUserByName(name);
+	}
+	@Override
+	public User findUserByMail(String mail) {
+		return userMapper.findUserByMail(mail);
 	}
 }

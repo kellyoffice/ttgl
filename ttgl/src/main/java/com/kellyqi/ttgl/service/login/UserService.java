@@ -16,7 +16,7 @@ import com.kellyqi.ttgl.model.User;
  * Date:     2014年8月9日 下午5:55:05 <br/>
  * @author   ZhaoQi 
  * @version  1.0 
- * @since    JDK 1.6
+ * @since    JDK 1.7
  * @see 
  */
 public interface UserService {
@@ -25,4 +25,5 @@ public interface UserService {
 	public boolean deleteUserById(Integer id);
 	public boolean updateUser(User user);
 	public User findUserByName(String name);
+	public User findUserByMail(String mail);
 }
