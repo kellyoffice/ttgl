@@ -1,4 +1,4 @@
-package com.kellyqi.ttgl.demo.controller; 
+package com.kellyqi.ttgl.controller.demo; 
   
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

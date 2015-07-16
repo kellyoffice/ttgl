@@ -13,20 +13,21 @@ package com.kellyqi.ttgl.entity;
  * @since    JDK 1.7
  * @see 
  */
-public class Msg {
-	private boolean success;
+public class ResultState {
+	//成功-true 失败-false
+	private boolean state;
 	private String msg;
 	
-	public Msg(boolean success, String msg) {
+	public ResultState(boolean success, String msg) {
 		super();
-		this.success = success;
+		this.state = success;
 		this.msg = msg;
 	}
 	public boolean isSuccess() {
-		return success;
+		return state;
 	}
 	public void setSuccess(boolean success) {
-		this.success = success;
+		this.state = success;
 	}
 	public String getMsg() {
 		return msg;

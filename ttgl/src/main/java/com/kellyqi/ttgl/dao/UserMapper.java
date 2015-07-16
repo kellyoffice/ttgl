@@ -5,8 +5,7 @@ import java.util.List;
 import com.kellyqi.ttgl.model.User;
 
 public interface UserMapper {
-
-	int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
 
@@ -18,7 +17,7 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
     
-    //---------------------Ext  扩展---------------------------
+  //---------------------Ext  扩展---------------------------
     
     public List<User> findAllUser();
     

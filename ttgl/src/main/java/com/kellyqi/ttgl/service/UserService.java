@@ -4,7 +4,7 @@
  * Copyright (c) 2014 by ZhaoQi , All Rights Reserved .
  */
 
-package com.kellyqi.ttgl.service.login;
+package com.kellyqi.ttgl.service;
 
 import java.util.List;
 

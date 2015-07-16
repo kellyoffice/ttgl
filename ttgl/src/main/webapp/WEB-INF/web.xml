@@ -50,11 +50,6 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<servlet-name>editorRegister</servlet-name>
-		<servlet-class>com.kellyqi.ttgl.servlet.propertyeditor.RegisterEditorServlet</servlet-class>
-		<load-on-startup>0</load-on-startup>
-	</servlet>
 	
 	<!-- 错误页面 -->
 </web-app>

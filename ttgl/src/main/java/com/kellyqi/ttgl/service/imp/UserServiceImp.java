@@ -4,7 +4,7 @@
  * Copyright (c) 2014 by ZhaoQi , All Rights Reserved .
  */
 
-package com.kellyqi.ttgl.service.login.imp;
+package com.kellyqi.ttgl.service.imp;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.kellyqi.ttgl.dao.UserMapper;
 import com.kellyqi.ttgl.model.User;
-import com.kellyqi.ttgl.service.login.UserService;
+import com.kellyqi.ttgl.service.UserService;
 
 /** 
  * Function: TODO ADD FUNCTION. <br/> 

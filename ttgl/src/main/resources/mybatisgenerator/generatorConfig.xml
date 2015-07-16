@@ -38,21 +38,5 @@
            enableDeleteByExample="false" enableSelectByExample="false"  
          enableUpdateByExample="false">  
 		</table>
-		<table schema="${dbname}" tableName="template" domainObjectName="Template" enableCountByExample="false"  
-           enableDeleteByExample="false" enableSelectByExample="false"  
-         enableUpdateByExample="false">  
-		</table>
-		<table schema="${dbname}" tableName="role" domainObjectName="Role" enableCountByExample="false"  
-           enableDeleteByExample="false" enableSelectByExample="false"  
-         enableUpdateByExample="false">  
-		</table>
-		<table schema="${dbname}" tableName="item" domainObjectName="Item" enableCountByExample="false"  
-           enableDeleteByExample="false" enableSelectByExample="false"  
-         enableUpdateByExample="false">  
-		</table>
-		<table schema="${dbname}" tableName="item_value" domainObjectName="Item_value" enableCountByExample="false"  
-           enableDeleteByExample="false" enableSelectByExample="false"  
-         enableUpdateByExample="false">  
-		</table>
 	</context>
 </generatorConfiguration>
