@@ -28,9 +28,7 @@
 <%@ include file="/jsp/common/linkBootstraphead.jsp"%>
 
 <base href="<%=basePath%>">
-<script type="text/javascript">
-jQuery(document).ready(function($) { alert("ok");});
-</script>
+
 </head>
 <body>
 	<div class="container">
@@ -49,9 +47,7 @@ jQuery(document).ready(function($) { alert("ok");});
 							<span class="input-group-addon" id="basic-addon1"><span
 								class="glyphicon glyphicon-user"></span></span> <input
 								class="form-control" type="text" id="username" name="username"
-								placeholder="Username" data-toggle="popover"
-								title="Popover title"
-								data-content="And here's some amazing content. It's very engaging. Right?">
+								placeholder="Username" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
 
 						</div>
 					</div>
@@ -89,6 +85,13 @@ jQuery(document).ready(function($) { alert("ok");});
 	<!-- /container -->
 
 	<%@ include file="/jsp/common/linkBootstrapfooter.jsp"%>
+
+	<script type="text/javascript">
+$(document).ready(function(){
+$('#username').popover('show');
+	});
+
+</script>
 </body>
 </html>
 
