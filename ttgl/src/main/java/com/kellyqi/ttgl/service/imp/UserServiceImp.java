@@ -30,7 +30,7 @@ public class UserServiceImp implements UserService{
 	private UserMapper userMapper;
 
 	public int insertUser(User user){
-		return userMapper.insert(user);
+		return userMapper.insertSelective(user);
 	}
 	public List<User> findAllUser() {
 		// TODO Auto-generated method stub
@@ -58,5 +58,9 @@ public class UserServiceImp implements UserService{
 	@Override
 	public User findUserByMail(String mail) {
 		return userMapper.findUserByMail(mail);
+	}
+	@Override
+	public void saveFamilyRelation(int userid, int familyID,float buget, int roleid) {
+		userMapper.saveFamilyRelation(userid,familyID,buget,roleid);
 	}
 }

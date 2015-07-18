@@ -34,9 +34,10 @@
 			targetProject="${TargetProject}" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-		<table schema="${dbname}" tableName="user" domainObjectName="User" enableCountByExample="false"  
+		<table schema="${dbname}" tableName="role" domainObjectName="Role" enableCountByExample="false"  
            enableDeleteByExample="false" enableSelectByExample="false"  
          enableUpdateByExample="false">  
 		</table>
+		
 	</context>
 </generatorConfiguration>

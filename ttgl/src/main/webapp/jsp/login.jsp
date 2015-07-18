@@ -39,13 +39,13 @@
 			</div>
 			<div class="col-md-6">
 
-				<form action="/user/register.do" method="POST">
+				<form action="user/login.do" method="POST">
 					<div class="form-group clearfix">
-						<label for="username">用户名:</label>
+						<label for="name">用户名:</label>
 						<div class="input-group clearfix">
 							<span class="input-group-addon" id="basic-addon1"><span
-								class="glyphicon glyphicon-user"></span></span> <input
-								class="form-control" type="text" id="username" name="username"
+								class="glyphicon glyphicon-user"></span></span> <input tabindex="0"
+								class="form-control" type="text" id="name" name="name"
 								placeholder="Username" aria-describedby="basic-addon1">
 
 						</div>
@@ -55,7 +55,7 @@
 						<label for="password">密码:</label>
 						<div class="input-group clearfix">
 							<span class="input-group-addon"><span
-								class="glyphicon glyphicon-lock"></span></span> <input
+								class="glyphicon glyphicon-lock"></span></span> <input tabindex="1"
 								class="form-control" type="password" id="password"
 								name="password" placeholder="Password">
 						</div>

@@ -26,4 +26,5 @@ public interface UserService {
 	public boolean updateUser(User user);
 	public User findUserByName(String name);
 	public User findUserByMail(String mail);
+	public void saveFamilyRelation(int userid, int familyID, float buget,int roleid);
 }

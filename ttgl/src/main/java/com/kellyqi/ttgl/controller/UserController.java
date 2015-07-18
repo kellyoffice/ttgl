@@ -6,19 +6,21 @@
 
 package com.kellyqi.ttgl.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kellyqi.ttgl.entity.RegisterInfo;
 import com.kellyqi.ttgl.entity.ResultState;
+import com.kellyqi.ttgl.model.Family;
+import com.kellyqi.ttgl.model.Role;
 import com.kellyqi.ttgl.model.User;
+import com.kellyqi.ttgl.service.FamilyService;
+import com.kellyqi.ttgl.service.RoleService;
 import com.kellyqi.ttgl.service.UserService;
 
 /** 
@@ -35,20 +37,49 @@ import com.kellyqi.ttgl.service.UserService;
 public class UserController {
 	@Autowired 
 	private UserService userService;
+	@Autowired
+	private FamilyService familyService;
+	@Autowired
+	private RoleService roleService;
+	
 	private static Logger logger = Logger.getLogger(UserController.class);
 	
 	@RequestMapping(value="register.do")
 	@ResponseBody
-	public ResultState register(HttpSession httpSession,User user){
-		logger.debug("insert into user,name is :" + user.getName() );
-		int i = userService.insertUser(user);
-		if(i == 0){
-			return new ResultState(false,"用户注册失败");
-		}else{
-			httpSession.setAttribute("user", user);
-			httpSession.setMaxInactiveInterval(3600);
-			return new ResultState(true,"用户注册成功");
+	public ResultState register(HttpSession httpSession,RegisterInfo registerInfo){
+		logger.debug("insert into user,name is :" + registerInfo.getUsername() );
+		//建立家庭
+		Family family = new Family();
+		family.setName(registerInfo.getFamilyName());
+		familyService.saveFamily(family);
+		logger.debug("Family("+registerInfo.getFamilyName()+") build success!" );
+		
+		//建立用户
+		int[] relations = registerInfo.getRelations();
+		//加自己一共要建立userSize个用户
+		int userSize = relations.length+1;
+		User user = null;
+		for (int i = 0; i < userSize; i++) {
+			user = new User();
+			int roleid = 0;
+			if(i==relations.length){
+				//建立自己账户
+				user.setName(registerInfo.getUsername());
+				roleid = Role.I;
+				user.setMail(registerInfo.getMail());
+			}else{
+				Role role = roleService.findRoleByID(relations[i]);
+				user.setName(registerInfo.getUsername()+role.getName());
+				roleid = relations[i];
+			}
+			user.setPassword(registerInfo.getPassword());
+			userService.insertUser(user);
+			userService.saveFamilyRelation(user.getId(),family.getId(),1000,roleid);
 		}
+		/*httpSession.setAttribute("user", user);
+		httpSession.setMaxInactiveInterval(3600);*/
+		logger.info("Success register user:"+ registerInfo.getUsername());
+		return new ResultState(true,"用户注册成功");
 	}
 	
 	@RequestMapping(value="updateUser.do")
@@ -66,7 +97,7 @@ public class UserController {
 	@ResponseBody
 	public ResultState login(User user,HttpSession httpSession){
 		logger.debug("login :" + user.getName());
-		User u = userService.findUserByMail(user.getMail());
+		User u = userService.findUserByName(user.getName());
 		if(u == null){
 			return new ResultState(false,"\""+user.getMail()+"\"这个用户不存在");
 		}
