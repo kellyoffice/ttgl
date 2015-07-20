@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kellyqi.ttgl.Utils.Constant;
 import com.kellyqi.ttgl.entity.RegisterInfo;
 import com.kellyqi.ttgl.entity.ResultState;
 import com.kellyqi.ttgl.model.Family;
@@ -45,7 +46,6 @@ public class UserController {
 	private static Logger logger = Logger.getLogger(UserController.class);
 	
 	@RequestMapping(value="register.do")
-	@ResponseBody
 	public ResultState register(HttpSession httpSession,RegisterInfo registerInfo){
 		logger.debug("insert into user,name is :" + registerInfo.getUsername() );
 		//建立家庭
@@ -94,19 +94,21 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="login.do")
-	@ResponseBody
-	public ResultState login(User user,HttpSession httpSession){
+	public String login(User user,HttpSession httpSession){
 		logger.debug("login :" + user.getName());
 		User u = userService.findUserByName(user.getName());
 		if(u == null){
-			return new ResultState(false,"\""+user.getMail()+"\"这个用户不存在");
+			logger.error("Fail get user ("+user.getName()+")");
+			return "用户不存在！";
 		}
 		if(u.getPassword().equalsIgnoreCase(user.getPassword())){
-			httpSession.setAttribute("user", u);
+			httpSession.setAttribute(Constant.SESSION_USER, u);
 			httpSession.setMaxInactiveInterval(3600);
-			return new ResultState(true,"登陆成功");
+			logger.info("Success login user:"+ user.getName());
+			return "homepage";
 		}else{
-			return new ResultState(false,"密码不正确");
+			logger.error("Fail login user:"+ user.getName()+",password is wrong !");
+			return "密码不正确";
 		}
 	}
 	
