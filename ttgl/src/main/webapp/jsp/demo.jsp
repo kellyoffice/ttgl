@@ -23,7 +23,7 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<title>Bootstrap 101 Template</title>
+<title>TTGL Demo</title>
 
 <%@ include file="/jsp/common/linkBootstraphead.jsp"%>
 
