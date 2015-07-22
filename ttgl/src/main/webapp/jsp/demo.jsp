@@ -23,15 +23,15 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<title>Bootstrap 101 Template</title>
+<title>TTGL Demo</title>
 
 <%@ include file="/jsp/common/linkBootstraphead.jsp"%>
 
 <base href="<%=basePath%>">
 </head>
 <body>
-	<h1><i class="fa fa-camera-retro"></i> 你好，世界！</h1>
-
+	<h1><i class="fa fa-camera-retro"></i> 你好，font-awesome !</h1>
+    <h1><i class="ion ion-transgender"></i> 你好，ionicons !</h1>
 	<%@ include file="/jsp/common/linkBootstrapfooter.jsp"%>
 </body>
 </html>
