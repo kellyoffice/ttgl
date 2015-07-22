@@ -5,7 +5,7 @@
     String pageName = request.getParameter("pageName");
   %>
 
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -25,7 +25,7 @@
 				<li <%if( pageName.equals( "setting")) { out.println("class=\"active\""); }%>><a href="setting.jsp">设置</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../navbar/">注销</a></li>
+				<li><a href="/ttgl/user/logout.do">注销</a></li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->

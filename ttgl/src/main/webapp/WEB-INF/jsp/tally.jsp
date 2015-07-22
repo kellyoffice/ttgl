@@ -23,7 +23,7 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<title>Bootstrap 101 Template</title>
+<title>记账</title>
 
 <%@ include file="/jsp/common/linkBootstraphead.jsp"%>
 

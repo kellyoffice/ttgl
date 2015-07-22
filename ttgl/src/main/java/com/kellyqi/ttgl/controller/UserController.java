@@ -112,4 +112,15 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(value="logout.do")
+	public String logout(HttpSession session){
+		User user = (User)session.getAttribute(Constant.SESSION_USER);
+		if(user == null){
+			return "redirect:"+Constant.JSP_LOGIN;
+		}
+		logger.info("logout :" + user.getName());
+		session.removeAttribute(Constant.SESSION_USER);
+		return "redirect:"+Constant.JSP_LOGIN;
+	}
+	
 }
