@@ -1,3 +1,5 @@
+<%@ page language="java" import="java.util.*"
+	contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <aside class="main-sidebar">
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">

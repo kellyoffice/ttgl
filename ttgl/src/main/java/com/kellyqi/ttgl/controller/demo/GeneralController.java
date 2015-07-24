@@ -18,6 +18,6 @@ public class GeneralController {
     public String visitMain(String subPage){
     	ModelMap map = new ModelMap();
     	map.addAttribute("subPage",subPage);
-    	return "main";
+    	return "common/main";
     }
 }  
