@@ -13,8 +13,6 @@
 <link href="/ttgl/js/AdminLTE-2.2.0/css/skins/_all-skins.css"
 	rel="stylesheet" type="text/css" />
 
-<link href="/ttgl/js/bootstrap-3.3.2/css/bootstrap-theme.min.css"
-	rel="stylesheet">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
