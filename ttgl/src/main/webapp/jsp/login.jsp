@@ -29,61 +29,59 @@
 
 <base href="<%=basePath%>">
 </head>
-<body>
-	<div class="container">
+<body class="login-page">
+	
+	<div class="login-box">
+      <div class="login-logo">
+        <a href="#"><b>家庭帐</b></a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">登陆  <small>开启记账模式</small></p>
+        <form action="user/login.do" method="post">
+          <div class="form-group has-feedback">
+            <input name="name" type="text" class="form-control" placeholder="用户名" />
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="password" type="password" class="form-control" placeholder="密码" />
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> 记住用户
+                </label>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">登陆</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
 
-		<section class="row">
+        <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 用 QQ 登陆</a>
+          <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i>用 微博 登陆</a>
+        </div><!-- /.social-auth-links -->
 
-			<div class="col-xs-12">
-				<h2 class="well title text-primary">用户名密码登陆</h2>
-			</div>
-			<div class="col-md-6">
+        <a href="#">忘记密码</a><br>
+        <a href="register.html" class="text-center">注册账号</a>
 
-				<form action="user/login.do" method="POST">
-					<div class="form-group clearfix">
-						<label for="name">用户名:</label>
-						<div class="input-group clearfix">
-							<span class="input-group-addon" id="basic-addon1"><span
-								class="glyphicon glyphicon-user"></span></span> <input tabindex="0"
-								class="form-control" type="text" id="name" name="name"
-								placeholder="Username" aria-describedby="basic-addon1">
-
-						</div>
-					</div>
-
-					<div class="form-group clearfix">
-						<label for="password">密码:</label>
-						<div class="input-group clearfix">
-							<span class="input-group-addon"><span
-								class="glyphicon glyphicon-lock"></span></span> <input tabindex="1"
-								class="form-control" type="password" id="password"
-								name="password" placeholder="Password">
-						</div>
-					</div>
-
-					<div class="checkbox">
-						<a class="pull-right" href="/resetting/request">Forgot
-							password?</a> <label for="remember_me"> <input
-							type="checkbox" id="remember_me" name="_remember_me" value="on"
-							checked="checked" />Remember me
-						</label>
-					</div>
-
-					<input type="hidden" name="_target_path"
-						value="https://packagist.org/" /> <input
-						class="btn btn-block btn-success btn-lg" type="submit"
-						id="_submit" name="_submit" value="登录" />
-				</form>
-
-				<hr>
-			</div>
-
-		</section>
-
-	</div>
-	<!-- /container -->
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
 
 	<%@ include file="/jsp/common/linkBootstrapfooter.jsp"%>
+	 <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
 </body>
 </html>
 

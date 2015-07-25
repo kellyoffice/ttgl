@@ -9,3 +9,4 @@
  <script src="/ttgl/js/sparkline/jquery.sparkline.js" type="text/javascript"></script>
  <script src="/ttgl/js/slimScroll/jquery.slimscroll.js" type="text/javascript"></script>
   <script src="/ttgl/js/AdminLTE-2.2.0/js/demo.js" type="text/javascript"></script>
+   <script src="/ttgl/js/iCheck/icheck.min.js" type="text/javascript"></script>

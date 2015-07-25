@@ -12,7 +12,7 @@
          folder instead of downloading all of them to reduce the load. -->
 <link href="/ttgl/js/AdminLTE-2.2.0/css/skins/_all-skins.css"
 	rel="stylesheet" type="text/css" />
-
+<link href="/ttgl/js/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
