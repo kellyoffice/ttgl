@@ -11,7 +11,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="js/fastclick/|js/jquery/|jsp/common/|css/index/|js/sparkline/|js/slimScroll/|js/iCheck/|js/iCheck/flat/|js/iCheck/futurico/|js/iCheck/line/|js/iCheck/minimal/|js/iCheck/polaris/|js/iCheck/square/" kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="js/fastclick/|js/jquery/|jsp/common/|css/index/|js/sparkline/|js/slimScroll/|js/iCheck/|js/iCheck/flat/|js/iCheck/futurico/|js/iCheck/line/|js/iCheck/minimal/|js/iCheck/polaris/|js/iCheck/square/|js/requirejs/" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="optional" value="true"/>

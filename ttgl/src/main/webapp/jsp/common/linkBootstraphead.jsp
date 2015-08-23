@@ -1,4 +1,3 @@
-
 <!-- Bootstrap -->
 <link href="/ttgl/js/bootstrap-3.3.2/css/bootstrap.css" rel="stylesheet"
 	type="text/css" />
