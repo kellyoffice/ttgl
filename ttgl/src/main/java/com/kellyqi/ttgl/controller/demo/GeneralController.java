@@ -10,7 +10,7 @@ public class GeneralController {
     @RequestMapping(value="index.do")  
     public String index_jsp(Model model){  
         model.addAttribute("liming", "赵琪你好");  
-        Log4JTest.main(null);
+        Log4JTest.print("log4j");
         return "demo/index";
     }  
     

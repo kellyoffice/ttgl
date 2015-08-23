@@ -1,11 +1,18 @@
 package com.kellyqi.ttgl.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class User {
-    private Integer id;
+public class User implements Serializable{
+    /**
+	 * serialVersionUID
+	 * @since JDK 1.7
+	 */
+	private static final long serialVersionUID = -3153735793761847236L;
+
+	private Integer id;
 
     private String name;
 
